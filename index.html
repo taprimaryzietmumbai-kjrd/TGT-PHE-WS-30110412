@@ -88,13 +88,19 @@ label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}input,selec
 </div></div>
 </section>
 <section id="participants" class="section">
-<div class="panel"><div class="eyebrow">Batch II</div><h2>Participants' information</h2><p class="muted">Official participant roster and participant self-service links will be added here.</p>
-<div class="notice">The participant list has not yet been supplied in this repository. No participant names or employee details have been fabricated.</div>
-<div id="participantLinks" class="grid">
-<div class="tile"><h3>Participant roster</h3><p>Official list to be linked after confirmation.</p></div>
-<div class="tile"><h3>Attendance</h3><p>Attendance link / register to be added.</p></div>
-</div></div>
-</section>
+<div class="panel"><div class="eyebrow">Official list of participants · Batch II</div><h2>List of Participants</h2>
+<p class="muted">TGT (P&amp;HE) CPD Training Programme · 30 November – 04 December 2026</p>
+<div class="stats" style="grid-template-columns:repeat(3,1fr);margin:14px 0">
+<div class="stat"><strong>55</strong><span>Total entries in supplied list</span></div>
+<div class="stat"><strong>38</strong><span>Patna Region (as recorded)</span></div>
+<div class="stat"><strong>16</strong><span>Jaipur Region</span></div></div>
+<div class="notice">Names and Vidyalaya details are transcribed from the uploaded participant list. Contact numbers and email addresses have not been published.</div>
+<label for="participantSearch">Search by name, region or Vidyalaya</label><input id="participantSearch" type="search" placeholder="Type a participant name or KV name…">
+<div style="overflow-x:auto;margin-top:14px"><table style="width:100%;border-collapse:collapse;font-size:13px" id="participantTable">
+<thead><tr style="background:#e9f2f7;color:#124b70;text-align:left"><th style="padding:10px">S. No.</th><th style="padding:10px">Name of Participant</th><th style="padding:10px">Region</th><th style="padding:10px">Kendriya Vidyalaya</th></tr></thead>
+<tbody id="participantRows"></tbody></table></div>
+<p id="participantCount" class="muted" style="font-size:12px;margin-top:10px"></p>
+</div></section>
 <section id="resources" class="section">
 <div class="panel"><div class="eyebrow">Digital repository</div><h2>Learning resources</h2><p class="muted">Add approved shareable links to presentations, PDFs, videos, activity sheets and other workshop material.</p>
 <form id="resourceForm"><div class="formgrid"><div><label for="rtitle">Resource title *</label><input id="rtitle" required placeholder="e.g. Day 1 presentation"></div><div><label for="rtype">Resource type</label><select id="rtype"><option>Presentation</option><option>PDF / Reading</option><option>Activity Sheet</option><option>Video</option><option>Audio</option><option>Assessment</option><option>Other</option></select></div></div>
@@ -124,4 +130,15 @@ function renderResources(){const items=loadResources(),list=document.getElementB
 document.getElementById('resourceForm').addEventListener('submit',e=>{e.preventDefault();const items=loadResources();items.push({title:document.getElementById('rtitle').value.trim(),type:document.getElementById('rtype').value,url:document.getElementById('rurl').value.trim()});localStorage.setItem(storeKey,JSON.stringify(items));e.target.reset();renderResources()});
 renderResources();
 </script>
-</body></html>
+<script>
+const participants = [[1,"ANMOL CHOUDHARY","PATNA","PM SHRI KENDRIYA VIDYALAYA AINWAN JEHANABAD (KV.1810)"],[2,"AMIYA ABHILASH DUTTA","PATNA","PM SHRI KENDRIYA VIDYALAYA GARHARA (KV.1814)"],[3,"VISHWANATH PRASAD","PATNA","PM SHRI KENDRIYA VIDYALAYA BETTIAH (KV.1815)"],[4,"VIRENDRA SINGH YADAV","PATNA","KENDRIYA VIDYALAYA BUXAR (KV.1817)"],[5,"DIWJENDRA BHUSHAN PANKAJ","Patna","PM SHRI KENDRIYA VIDYALAYA NO.2 GAYA (KV.1822)"],[6,"AKBAR ANSARI","PATNA","KENDRIYA VIDYALAYA HAJIPUR (KV.1826)"],[7,"SANTOSH KUMAR","PATAN","PM SHRI KENDRIYA VIDYALAYA JAMALPUR (KV.1827)"],[8,"ROHIT KUMAR SINGH","PATNA","PM SHRI KENDRIYA VIDYALAYA JAWAHAR NAGAR (KV.1828)"],[9,"RAJESH RANJAN","PATNA","KENDRIYA VIDYALAYA NTPC KAHALGAON (KV.1829)"],[10,"SH RAJESH RATHI","PATNA","PM SHRI KENDRIYA VIDYALAYA KATIHAR (KV.1830)"],[11,"DOMAN HEMBROM","PATNA","PM SHRI KENDRIYA VIDYALAYA KHAGARIA (KV.1831)"],[12,"AKASH SAINI","PATNA","PM SHRI KENDRIYA VIDYALAYA BSF KISHANGANJ (KV.1832)"],[13,"RAUSHAN KUMAR","PATNA","KENDRIYA VIDYALAYA LAKHISARAI (KV.1833)"],[14,"ANSHU KUMAR","PATNA","PM SHRI KENDRIYA VIDYALAYA MASHRAK (KV.1835)"],[15,"OSHO ANAND","PATNA","KENDRIYA VIDYALAYA MOTIHARI (KV.1836)"],[16,"AJAY KUMAR SINGH","PATNA","PM SHRI KENDRIYA VIDYALAYA CRPF MOKAMA GHAT (KV.1837)"],[17,"GAURAV","PATNA","PM SHRI KENDRIYA VIDYALAYA MUZAFFARPUR FS"],[18,"AMAR SHAKTI KUMAR","PATNA","PM SHRI KENDRIYA VIDYALAYA MUZAFFARPUR - Shift - 2 (KV.183902)"],[19,"RAVI KUMAR GUPTA","PATNA","PM SHRI KENDRIYA VIDYALAYA DANAPUR CANTT. - Shift - 1 (KV.1840)"],[20,"PRABHAT KUMAR","PATNA","PM SHRI KENDRIYA VIDYALAYA KHAGAUL (KV.1841)"],[21,"HIMADRI BHASYAM","PATNA","PM SHRI KENDRIYA VIDYALAYA NO.1 KANKARBAGH PATNA - Shift - 1 (KV.1842)"],[22,"MANOJ KUMAR SRIVASTAVA","Patna","PM SHRI KENDRIYA VIDYALAYA NO.1 KANKARBAGH PATNA - Shift - 2 (KV.184202)"],[23,"GYAN PRAKASH","Patna","PM SHRI KENDRIYA VIDYALAYA NO.2 BAILEY ROAD PATNA - Shift - 1 (KV.1843)"],[24,"SAPNA KUMARI","PATNA","PM SHRI KENDRIYA VIDYALAYA NO.2 BAILEY ROAD PATNA - Shift - 2 (KV.184302)"],[25,"ALPESH ANAND","patna","PM SHRI KENDRIYA VIDYALAYA RPCAU PUSA (KV.1844)"],[26,"SRIKANT SINGH","PATNA","PM SHRI KENDRIYA VIDYALAYA SONPUR (KV.1849)"],[27,"SHUBHAM","PATNA","KENDRIYA VIDYALAYA GOPALGANJ (KV.1939)"],[28,"CHANDRADHARI SHARAN","PATNA","KENDRIYA VIDYALAYA BANKA (KV.1945)"],[29,"AAKASH DEEP","PATNA","KENDRIYA VIDYALAYA NO.1 BARAUNI (KV.1946)"],[30,"MANISH KUMAR SINGH","PATNA","PM SHRI KENDRIYA VIDYALAYA ARA (KV.2062)"],[31,"YASHVEER SINGH","PATNA","KENDRIYA VIDYALAYA AFS PURNEA (KV.2063)"],[32,"BILTON","Patna","PM SHRI KENDRIYA VIDYALAYA OF NALANDA (KV.2109)"],[33,"ADARSH AHIRWAR","PATNA","PM SHRI KENDRIYA VIDYALAYA ARARIA (KV.2125)"],[34,"PARWEEN TOPPO","PATNA","PM SHRI KENDRIYA VIDYALAYA SHEOHAR (KV.2145)"],[35,"SHASHIPRABHA","PATNA","PM SHRI KENDRIYA VIDYALAYA JHAJHA"],[36,"NAGENDRA KUMAR","PATNA","KENDRIYA VIDYALAYA NPGCL NABINAGAR (KV.2378)"],[37,"GITIKA ARORA","PATNA","KENDRIYA VIDYALAYA IIT PATNA (KV.2424)"],[38,"DWIJENDRA BHUSHAN PANKAJ","PATNA","PM SHRI KENDRIYA VIDYALAYA NO.2 GAYA (KV.1822)"],[39,"SH.NIGAM TIWARI","PATNA","PM SHRI KENDRIYA VIDYALAYA ECR SAMASTIPUR"],[40,"RAJ KUMAR MEENA","JAIPUR","PM SHRI K V NO 5 IInd Shift Mansarovar"],[41,"MANMOHAN SINGH MEENA","JAIPUR","PM SHRI K V NO 6 JAIPUR"],[42,"MR. RAJIV NAIN","JAIPUR","PM SHRI K V NO 7 JAIPUR"],[43,"LALA RAM MEENA","JAIPUR","KV AVIKANAGAR"],[44,"Sh. Yogesh Kumar","JAIPUR","PM Shri K.V. No.2,Ajmer"],[45,"BADRI NARAYAN","JAIPUR","PM SHRI KV ARMY BANAR , JODHPUR"],[46,"MR KAPIL KUMAR","JAIPUR","PM SHRI KV BSF JODHPUR"],[47,"MANOJ GODHA","Jaipur","PM Shri KV No. 1 AFS Jodhpur"],[48,"SH POORAN SINGH","JAIPUR","PM SHRI KV NO 1 ARMY JODHPUR"],[49,"HUKAMA RAM","JAIPUR","PM SHRI KV NO 2 AFS JODHPUR"],[50,"Mrs. LATA CHOUDHARY","JAIPUR","PM SHRI KV NO .2 ARMY JODHPUR"],[51,"MR. LERA RAM MEENA","JAIPUR","PM SHRI KV PALI"],[52,"SHYAM SINGH BHATI","JAIPUR","PM SHRI KV TIVRI"],[53,"RAJEEV CHOUDHARY","JAIPUR","PM SHRI KV NO. 01 BIKNAER"],[54,"SHRI AJAY PAL BHADU","JAIPUR","PM SHRI KV NO. 02 BIKNAER"],[55,"NISHA","JAIPUR","PM SHRI KV BSF KHAJUWALA"]];
+const tbody=document.getElementById('participantRows');
+function renderParticipants(q=''){
+ const term=q.trim().toLowerCase();tbody.innerHTML='';
+ const found=participants.filter(p=>p.slice(1).join(' ').toLowerCase().includes(term));
+ found.forEach(p=>{const tr=document.createElement('tr');tr.style.borderBottom='1px solid #e1e8ee';p.forEach((v,i)=>{const td=document.createElement('td');td.style.padding='9px 10px';td.textContent=v;tr.appendChild(td)});tbody.appendChild(tr)});
+ document.getElementById('participantCount').textContent='Showing '+found.length+' of '+participants.length+' entries.';
+}
+document.getElementById('participantSearch').addEventListener('input',e=>renderParticipants(e.target.value));
+renderParticipants();
+</script></body></html>
